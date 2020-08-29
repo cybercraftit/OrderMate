@@ -1,0 +1,21 @@
+<?php
+return [
+    'Dashboard' => 'Dashboard',
+    'Orders' => 'Orders',
+    'Name' => 'Name',
+    'Add Order' => 'Add Order',
+    'Customers' => 'Customers',
+    'Add Customer' => 'Add Customer',
+    'Create New Order' => 'Create New Order',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Phone' => 'Phone',
+    'Email' => 'Email',
+    'Address' => 'Address',
+    'Shipping Address' => 'Shipping Address',
+    'Amount' => 'Amount',
+    'Payment Option' => 'Payment Option',
+    'Delivery Date' => 'Delivery Date',
+    'Customer' => 'Customer',
+    'Action' => 'Action',
+];
