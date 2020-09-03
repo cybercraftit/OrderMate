@@ -12,6 +12,12 @@ use Bouncer;
 
 class OrdersController extends Controller
 {
+    public function view( $view_path, $data, Request $request ) {
+        if( $request->wantsJson() ) {
+            return response()->json($data);
+        }
+        return view($view_path,$data);
+    }
 
     /**
      * Display a listing of the resource.
@@ -21,21 +27,22 @@ class OrdersController extends Controller
     public function index( Request $request)
     {
         if( !Bouncer::can('browse',Order::class) ) return view( 'ordermate::unauth');
-        $items = new Order();
+        $items = (new Order())->with('customer');
 
         if( !isset($request->customer)) {
             $items = $items->paginate(10);
         } else {
             $items = $items->where( 'customer_id', $request->customer )->paginate(10);
         }
-        
+
         if( $request->wantsJson() ) {
             return response()->json( [
                 'items' => $items
             ] );
         }
-        
-        return view( 'ordermate::orders.index', compact('items') );
+        return $this->view('ordermate::orders.index', [
+            'items' => $items
+        ], $request );
     }
 
     /**
@@ -43,14 +50,14 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( Request $request )
     {
         if( !Bouncer::can('create',Order::class) ) return view( 'ordermate::unauth');
         $order_statuses = config('ordermate.order_status');
-        return view( 'ordermate::orders.create', [
+        return $this->view('ordermate::orders.create', [
             'item' => new Order(),
             'order_statuses' => $order_statuses
-        ] );
+        ], $request );
     }
 
     /**
@@ -94,14 +101,15 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         if( !Bouncer::can('read',Order::class) ) return view( 'ordermate::unauth');
 
         $item = Order::with('customer')->find($id);
-        return view('ordermate::orders.show', [
+
+        return $this->view( 'ordermate::orders.show', [
             'item' => $item
-        ] );
+        ], $request );
     }
 
     public function order_detail_pdf($id) {
@@ -121,17 +129,17 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
         if( !Bouncer::can('edit',Order::class) ) return view( 'ordermate::unauth');
         $order_statuses = config('ordermate.order_status');
 
         $item = Order::with('customer')->find($id);
 
-        return view('ordermate::orders.edit', [
+        return $this->view( 'ordermate::orders.edit', [
             'item' => $item,
             'order_statuses' => $order_statuses
-        ]);
+        ], $request );
     }
 
     /**
