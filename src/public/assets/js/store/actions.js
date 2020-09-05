@@ -18,6 +18,15 @@ let actions = {
             console.log(err)
         })
     },
+    createOrder({commit}) {
+        axios.get('/orders/create')
+            .then(res => {
+                commit('CREATE_ORDER', res.data.item)
+                commit('GET_ORDER_STATUSES', res.data.order_statuses)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
     editOrder({commit}, {id}) {
         axios.get('/orders/edit/' + id)
             .then(res => {
@@ -51,15 +60,6 @@ let actions = {
                     //commit('GET_ORDER_STATUSES', res.data.order_statuses);
                     commit('SET_MESSAGE', res.data.flash_message);
                 }
-            }).catch(err => {
-            console.log(err)
-        })
-    },
-    createOrder({commit}) {
-        axios.get('/orders/create')
-            .then(res => {
-                commit('CREATE_ORDER', res.data.item)
-                commit('GET_ORDER_STATUSES', res.data.order_statuses)
             }).catch(err => {
             console.log(err)
         })

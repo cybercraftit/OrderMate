@@ -1,6 +1,6 @@
 let state = {
     errors: {},
-    msg: 'qqqqwewqe',
+    msg: '',
     orders: {
         items:{
             data: []

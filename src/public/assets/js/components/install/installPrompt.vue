@@ -63,7 +63,6 @@
                         }
                     })
                         .then(function (res) {
-                            console.log(res.data);
                             _this.options = res.data;
                         });
                 },1000);

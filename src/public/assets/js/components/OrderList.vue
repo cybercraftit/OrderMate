@@ -104,7 +104,6 @@
                 })
                     .then(function (res) {
                         _this.orders = res.data.items.data;
-                        console.log(_this.orders);
                         _this.nav_data = {
                             current_page: res.data.items.current_page,
                             from: res.data.items.from,

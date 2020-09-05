@@ -15,8 +15,8 @@
                 @lang('ordermate::main.Orders')
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <div class="">
+                    <table class="table" cellspacing="0">
                         <thead>
                         <tr>
                             <th>ID</th>

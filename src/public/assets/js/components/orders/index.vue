@@ -2,12 +2,12 @@
     <div>
         <div class="card mb-4 mt-4">
             <div class="card-body">
-                <div class="table-responsive">
-                    <div class="mb-5">
-                        <div class="pull-left">
-                            <h5>Orders</h5>
-                        </div>
+                <div class="mb-5">
+                    <div class="pull-left">
+                        <h5>Orders</h5>
                     </div>
+                </div>
+                <div class="table-responsive">
                     <table class="table table-responsive" cellspacing="0">
                         <thead>
                         <tr>
@@ -70,7 +70,13 @@
                         <li class="page-item" v-if=nav_data.next_page_url><a class="page-link" :href="nav_data.next_page_url" @click="get_orders(nav_data.next_page_url)">Next</a></li>
                     </ul>
                 </nav>
-                <!-- <div class="pagination-wrapper"> {!! $items->appends(['search' => Request::get('search')])->render() !!} </div> -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"  v-for="(n,index) in orders.items.last_page">
+                            <a class="page-link" :href="'#/orders/' + n" :class="{'current' : orders.items.current_page == n }">{{ n }}</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -92,6 +98,11 @@
                 }
             }
         },
+        watch: {
+            '$route.params.page': function (id) {
+                this.fetch_data();
+            }
+        },
         computed: {
             orders() {
                 return this.$store.getters.orders;
@@ -104,27 +115,12 @@
             delete_item(order) {
                 this.$store.dispatch('deleteOrder', {order})
             },
-            fetch_data(url) {
-                let _this = this;
-                axios.post(url, {
-                    customer: _this.customer_id
-                })
-                    .then(function (res) {
-                        _this.orders = res.data.items.data;
-                        console.log(_this.orders);
-                        _this.nav_data = {
-                            current_page: res.data.items.current_page,
-                            from: res.data.items.from,
-                            last_page: res.data.items.last_page,
-                            first_page_url: res.data.items.first_page_url,
-                            last_page_url: res.data.items.last_page_url,
-                            next_page_url: res.data.items.next_page_url
-                        }
-                    })
+            fetch_data() {
+                this.$store.dispatch('getOrders', {page:this.$route.params.page})
             }
         },
         mounted() {
-            this.$store.dispatch('getOrders', {page:1})
+            this.fetch_data();
         }
     }
 </script>
