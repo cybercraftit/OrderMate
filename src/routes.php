@@ -17,7 +17,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get( '/orders/show/{id}', '\CyberCraft\OrderMate\Controllers\OrdersController@show' )->name('ordermate.orders.show');
     Route::get( '/customers/show/{id}/pdf', '\CyberCraft\OrderMate\Controllers\OrdersController@order_detail_pdf' )->name('ordermate.orders.show.pdf');
     Route::get( '/orders/edit/{id}', '\CyberCraft\OrderMate\Controllers\OrdersController@edit' )->name('ordermate.orders.edit');
-    Route::patch( '/orders/update/{id}', '\CyberCraft\OrderMate\Controllers\OrdersController@update' )->name('ordermate.orders.update');
+    Route::post( '/orders/update/{id}', '\CyberCraft\OrderMate\Controllers\OrdersController@update' )->name('ordermate.orders.update');
     Route::delete( '/orders/delete/{id}', '\CyberCraft\OrderMate\Controllers\OrdersController@destroy' )->name('ordermate.orders.delete');
 
     //customers

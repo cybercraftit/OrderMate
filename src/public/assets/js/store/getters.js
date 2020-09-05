@@ -1,4 +1,10 @@
 let getters = {
+    errors: state => {
+        return state.errors
+    },
+    msg: state => {
+        return state.msg
+    },
     orders: state => {
         return state.orders
     },

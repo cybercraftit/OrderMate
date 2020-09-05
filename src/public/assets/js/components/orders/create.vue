@@ -23,7 +23,6 @@
                     <!--{{ method_field('PATCH') }}-->
                     <!--{{ csrf_field() }}-->
                     <!--@include ('ordermate::orders.form',['formMode' => 'edit'])-->
-
                 </form>
                 <order-form :formMode="formMode"></order-form>
             </div>
@@ -33,17 +32,17 @@
 <script>
     import OrderForm from './partials/form.vue';
     export default {
-        name: 'editOrder',
+        name: 'createOrder',
         components:{
             OrderForm
         },
         data() {
             return {
-                formMode: 'edit'
+                formMode: 'create'
             }
         },
         mounted() {
-            this.$store.dispatch('editOrder', {id:this.$route.params.id})
+            this.$store.dispatch('createOrder')
         }
     }
 </script>

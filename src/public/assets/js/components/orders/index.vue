@@ -50,10 +50,10 @@
                                      <a v-if="item.can.read" :href="'#/orders/show/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                      <a v-if="item.can.edit" :href="'#/orders/edit/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                      <template v-if="item.can.delete">
+                                         <button type="submit" @click="delete_item(item)" class="btn btn-danger btn-sm" title="__( 'ordermate::main.Delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                          <!--<form method="POST" action="delete_item(item.id)" accept-charset="UTF-8" style="display:inline">
                                              {{ method_field('DELETE') }}
                                              {{ csrf_field() }}
-                                             <button type="submit" class="btn btn-danger btn-sm" title="{{ __( 'ordermate::main.Delete') }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                          </form>-->
                                      </template>
                                 </td>
@@ -101,8 +101,8 @@
             get_orders(url) {
                 this.fetch_data(url);
             },
-            delete_item(id) {
-                this.$store.dispatch('deleteOrder', {id})
+            delete_item(order) {
+                this.$store.dispatch('deleteOrder', {order})
             },
             fetch_data(url) {
                 let _this = this;

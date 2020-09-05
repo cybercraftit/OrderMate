@@ -1,5 +1,11 @@
 let state = {
-    orders: [],
+    errors: {},
+    msg: 'qqqqwewqe',
+    orders: {
+        items:{
+            data: []
+        }
+    },
     order: {},
     order_statuses: {}
 }

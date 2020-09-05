@@ -47,8 +47,7 @@
                         <div :class="{collapse : selected_tab != 'orders'}">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="#/orders">@lang('ordermate::main.Orders')</a>
-                                <a class="nav-link" href="{{ route('ordermate.orders.index') }}">@lang('ordermate::main.Orders')</a>
-                                <a class="nav-link" href="{{ route('ordermate.orders.create') }}">@lang('ordermate::main.Add Order')</a>
+                                <a class="nav-link" href="#/orders/create">@lang('ordermate::main.Add Order')</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="javascript:"
