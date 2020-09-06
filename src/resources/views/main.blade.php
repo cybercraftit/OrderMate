@@ -10,7 +10,7 @@
     @yield('css')
 </head>
 <body class="sb-nav-fixed">
-<div id="ordermate">
+<div id="ordermate" v-cloak>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="/">{{ 'OrderMate' }}</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fa fa-bars"></i></button>
@@ -59,8 +59,8 @@
                         </a>
                         <div :class="{collapse : selected_tab != 'customers'}">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ route('ordermate.customers.index') }}"> @lang('ordermate::main.Customers')</a>
-                                <a class="nav-link" href="{{ route('ordermate.customers.create') }}">@lang('ordermate::main.Add Customer')</a>
+                                <a class="nav-link" href="#/customers"> @lang('ordermate::main.Customers')</a>
+                                <a class="nav-link" href="#/customers/create">@lang('ordermate::main.Add Customer')</a>
                             </nav>
                         </div>
                     </div>

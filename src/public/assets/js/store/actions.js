@@ -2,16 +2,9 @@ import axios from 'axios';
 import router from '../router';
 
 let actions = {
-    getOrders({commit}, {page}) {
-        axios.get('/orders?page=' + page)
-            .then(res => {
-                commit('GET_ORDERS', res.data)
-            }).catch(err => {
-            console.log(err)
-        })
-    },
+
     getOrder({commit}, {id}) {
-        axios.get('/orders/show/' + id)
+        axios.get('/api/orders/show/' + id)
             .then(res => {
                 commit('GET_ORDER', res.data.item)
             }).catch(err => {
@@ -19,7 +12,7 @@ let actions = {
         })
     },
     createOrder({commit}) {
-        axios.get('/orders/create')
+        axios.get('/api/orders/create')
             .then(res => {
                 commit('CREATE_ORDER', res.data.item)
                 commit('GET_ORDER_STATUSES', res.data.order_statuses)
@@ -28,7 +21,7 @@ let actions = {
         })
     },
     editOrder({commit}, {id}) {
-        axios.get('/orders/edit/' + id)
+        axios.get('/api/orders/edit/' + id)
             .then(res => {
                 commit('EDIT_ORDER', res.data.item)
                 commit('GET_ORDER_STATUSES', res.data.order_statuses)
@@ -37,7 +30,7 @@ let actions = {
         })
     },
     storeOrder({commit}, {order}) {
-        axios.post('/orders/store',order)
+        axios.post('/api/orders/store',order)
             .then(res => {
                 if( !res.data.success ) {
                     commit('SET_ERRORS', res.data.errors);
@@ -53,7 +46,7 @@ let actions = {
         })
     },
     updateOrder({commit}, {order}) {
-        axios.post('/orders/update/' + order.id, order)
+        axios.post('/api/orders/update/' + order.id, order)
             .then(res => {
                 if( res.data.success ) {
                     commit('EDIT_ORDER', res.data.item);
@@ -64,15 +57,111 @@ let actions = {
             console.log(err)
         })
     },
-    deleteOrder({commit}, {order}) {
-        axios.delete(`/orders/delete/${order.id}`)
+    deleteOrder({commit}, {order,callback}) {
+        axios.delete(`/api/orders/delete/${order.id}`)
             .then(res => {
-                if (res.data.success)
+                if (res.data.success) {
                     commit('DELETE_ORDER', order)
+                    if( callback ) {
+                        callback();
+                    }
+                }
+
             }).catch(err => {
             console.log(err)
         })
-    }
+    },
+    getOrders({commit}, {page}) {
+        axios.get('/api/orders?page=' + page)
+            .then(res => {
+                console.log('orders');
+                console.log(res.data);
+                commit('GET_ORDERS', res.data)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    //customers
+    getCustomers({commit}, {page}) {
+        axios.get('/api/customers?page=' + page)
+            .then(res => {
+                commit('GET_CUSTOMERS', res.data);
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    getCustomer({commit}, {id}) {
+        axios.get('/api/customers/show/' + id)
+            .then(res => {
+                commit('GET_CUSTOMER', res.data.item)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    createCustomer({commit}) {
+        axios.get('/api/customers/create')
+            .then(res => {
+                console.log(res);
+                commit('CREATE_CUSTOMER', res.data.item)
+                //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    editCustomer({commit}, {id}) {
+        axios.get('/api/customers/edit/' + id)
+            .then(res => {
+                commit('EDIT_CUSTOMER', res.data.item)
+                //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    storeCustomer({commit}, {customer}) {
+        axios.post('/api/customers/store',customer)
+            .then(res => {
+                if( !res.data.success ) {
+                    console.log(res);
+                    commit('SET_ERRORS', res.data.errors);
+                } else {
+                    commit('SET_ERRORS', []);
+                    commit('STORE_CUSTOMER', res.data.item)
+                    router.push('/customers');
+                }
+
+                //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    updateCustomer({commit}, {customer}) {
+        axios.post('/api/customers/update/' + customer.id, customer)
+            .then(res => {
+                console.log(res);
+                if( res.data.success ) {
+                    commit('EDIT_CUSTOMER', res.data.item);
+                    //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses);
+                    commit('SET_MESSAGE', res.data.flash_message);
+                }
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    deleteCustomer({commit}, {customer,callback}) {
+        axios.delete(`/api/customers/delete/${customer.id}`)
+            .then(res => {
+                console.log(res);
+                if (res.data.success) {
+                    commit('DELETE_CUSTOMER', customer)
+                    if( callback ) {
+                        callback();
+                    }
+                }
+
+            }).catch(err => {
+            console.log(err)
+        })
+    },
 };
 
 export default actions;

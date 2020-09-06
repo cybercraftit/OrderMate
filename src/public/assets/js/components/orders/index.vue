@@ -49,13 +49,7 @@
                                  <td>
                                      <a v-if="item.can.read" :href="'#/orders/show/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                      <a v-if="item.can.edit" :href="'#/orders/edit/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                     <template v-if="item.can.delete">
-                                         <button type="submit" @click="delete_item(item)" class="btn btn-danger btn-sm" title="__( 'ordermate::main.Delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                         <!--<form method="POST" action="delete_item(item.id)" accept-charset="UTF-8" style="display:inline">
-                                             {{ method_field('DELETE') }}
-                                             {{ csrf_field() }}
-                                         </form>-->
-                                     </template>
+                                     <button v-if="item.can.delete" type="submit" @click="delete_item(item)" class="btn btn-danger btn-sm" title="__( 'ordermate::main.Delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                         </template>
@@ -73,7 +67,7 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item"  v-for="(n,index) in orders.items.last_page">
-                            <a class="page-link" :href="'#/orders/' + n" :class="{'current' : orders.items.current_page == n }">{{ n }}</a>
+                            <a class="page-link" :href="'#/orders/' + n" :class="{'active btn-primary' : orders.items.current_page == n }">{{ n }}</a>
                         </li>
                     </ul>
                 </nav>

@@ -4,14 +4,8 @@
             <div class="col-sm-12 text-right">
                 <a v-if="typeof order.can != 'undefined' && order.can.browse" href="#/orders" class="btn btn-sm btn-warning" title="@lang('ordermate::main.List')"><i class="fa fa-list"></i></a>
                 <a v-if="typeof order.can != 'undefined' && order.can.edit" :href="'#/orders/edit/' + order.id" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
-                <!--<template v-if="order.can.delete">
-                    <form method="POST" action="{{ route('ordermate.orders.delete', $item->id ) }}" accept-charset="UTF-8" style="display:inline">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <button type="submit" class="btn btn-danger btn-sm" title="{{ __( 'ordermate::main.Delete') }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                    </form>
-                </template>-->
                 <a href="javascript:" class="btn btn-success btn-sm" onclick="window.print()"><i class="fa fa-print"></i></a>
+                <button v-if="order.can.delete" type="submit" @click="delete_item(order)" class="btn btn-danger btn-sm" title="__( 'ordermate::main.Delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 <!--<a href="{{ route('ordermate.orders.show.pdf', $item->id ) }}" class="btn btn-warning btn-sm" @click="make_pdf"><i class="fa fa-print"></i></a>-->
             </div>
         </div>
@@ -77,6 +71,12 @@
             },
         },
         methods: {
+            delete_item(order) {
+                var _this = this;
+                this.$store.dispatch('deleteOrder', {order,callback: function(){
+                    _this.$router.push('/orders');
+                }})
+            }
         },
         mounted() {
             this.$store.dispatch('getOrder', {id:this.$route.params.id})

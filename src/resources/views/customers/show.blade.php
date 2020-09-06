@@ -25,7 +25,7 @@
                 <h4><i class="fa fa-user"></i> {{ $item->first_name }} {{ $item->last_name }}</h4>
                 <div><i class="fa fa-phone"></i> {{ $item->phone }}</div>
                 <div><i class="fa fa-envelope"></i> {{ $item->email }}</div>
-                <div><i class="fa fa-phone"></i> {{ $item->address }}</div>
+                <div><i class="fa fa-address-book"></i> {{ $item->address }}</div>
             </div>
         </div>
     </div>

@@ -7,7 +7,13 @@ let state = {
         }
     },
     order: {},
-    order_statuses: {}
-}
+    order_statuses: {},
+    customers: {
+        items:{
+            data: []
+        }
+    },
+    customer: {}
+};
 
 export default state;

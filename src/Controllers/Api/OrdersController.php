@@ -1,6 +1,6 @@
 <?php
 
-namespace CyberCraft\OrderMate\Controllers;
+namespace CyberCraft\OrderMate\Controllers\Api;
 
 use CyberCraft\OrderMate\models\Customer;
 use CyberCraft\OrderMate\models\Order;
@@ -20,7 +20,7 @@ class OrdersController extends Controller
      */
     public function index( Request $request)
     {
-        if( !Bouncer::can('browse',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);
+        if( !Bouncer::can('browse',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
         $items = (new Order())->with('customer');
 
         if( !isset($request->customer)) {
@@ -29,9 +29,10 @@ class OrdersController extends Controller
             $items = $items->where( 'customer_id', $request->customer )->paginate(10);
         }
 
-        return view('ordermate::orders.index', [
+        return response()->json( [
+            'success' => true,
             'items' => $items
-        ]);
+        ] );
     }
 
     /**
@@ -39,15 +40,16 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( Request $request )
+    public function create()
     {
-        if( !Bouncer::can('create',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);
+        if( !Bouncer::can('create',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
         $order_statuses = config('ordermate.order_status');
         $item = new Order();
         $customer = new Customer();
         $item->customer = $customer;
 
-        return view('ordermate::orders.create', [
+        return response()->json([
+            'success' => true,
             'item' => $item,
             'order_statuses' => $order_statuses
         ]);
@@ -61,23 +63,24 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        if( !Bouncer::can('create',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);
+        if( !Bouncer::can('create',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make( array_merge( $request->all(), $request->customer ), [
             'phone' => 'required|numeric'
         ]);
 
         if( $validator->fails() ) {
-            return redirect()->route('ordermate.orders.create')
-                ->withErrors($validator)
-                ->withInput();
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
         }
 
         //check if there already a customer with the phone number
-        $customer = Customer::where('phone',$request->phone)->first();
+        $customer = Customer::where('phone',$request->customer['phone'])->first();
 
         if( !$customer ) {
-            $customer = Customer::create( $request->all() );
+            $customer = Customer::create( $request->customer );
         }
 
         $request->request->set( 'customer_id', $customer->id);
@@ -88,7 +91,7 @@ class OrdersController extends Controller
         }
 
         $item = Order::create( $request->all() );
-        return view('ordermate.orders.index', [
+        return response()->json([
             'success' => true,
             'flash_message' => 'Order added!',
             'msg_status' => 'success',
@@ -105,37 +108,24 @@ class OrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if( !Bouncer::can('edit',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);
+        if( !Bouncer::can('edit',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
 
-        if( $request->wantsJson() ) {
-            $validator = Validator::make( array_merge( $request->all(), $request->customer ), [
-                'phone' => 'required|numeric'
+        $validator = Validator::make( array_merge( $request->all(), $request->customer ), [
+            'phone' => 'required|numeric'
+        ]);
+
+        if( $validator->fails() ) {
+            return response()->json([
+                'errors' => $validator->errors(),
+                'success' => false
             ]);
+        }
 
-            if( $validator->fails() ) {
-                return view('ordermate.ordermate.create',[
-                    'errors' => $validator->errors(),
-                    'success' => false
-                ], $request);
-            }
+        //check if there already a customer with the phone number
+        $customer = Customer::where('phone',$request->customer['phone'])->first();
 
-            //check if there already a customer with the phone number
-            $customer = Customer::where('phone',$request->customer['phone'])->first();
-
-            if( !$customer ) {
-                $customer = Customer::create( $request->customer );
-            }
-        } else {
-            Validator::make($request->all(), [
-                'phone' => 'required|numeric'
-            ])->validate();
-
-            //check if there already a customer with the phone number
-            $customer = Customer::where('phone',$request->phone)->first();
-
-            if( !$customer ) {
-                $customer = Customer::create( $request->all() );
-            }
+        if( !$customer ) {
+            $customer = Customer::create( $request->customer );
         }
 
         $request->request->set( 'customer_id', $customer->id);
@@ -151,7 +141,7 @@ class OrdersController extends Controller
             $item->fill( $request->all() )->save();
         }
 
-        return view( 'ordermate::orders.edit', [
+        return response()->json([
             'success' => true,
             'flash_message' => 'Order updated!',
             'msg_status' => 'success',
@@ -167,17 +157,18 @@ class OrdersController extends Controller
      */
     public function show($id, Request $request)
     {
-        if( !Bouncer::can('read',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);;
+        if( !Bouncer::can('read',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
 
         $item = Order::with('customer')->find($id);
 
-        return view( 'ordermate::orders.show', [
+        return response()->json([
+            'success' => true,
             'item' => $item
-        ], $request );
+        ]);
     }
 
     public function order_detail_pdf($id) {
-        if( !Bouncer::can('read',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ] );;
+        if( !Bouncer::can('read',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
 
         $item = Order::with('customer')->find($id);
 
@@ -195,12 +186,13 @@ class OrdersController extends Controller
      */
     public function edit($id, Request $request)
     {
-        if( !Bouncer::can('edit',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);;
+        if( !Bouncer::can('edit',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
         $order_statuses = config('ordermate.order_status');
 
         $item = Order::with('customer')->find($id);
 
-        return view( 'ordermate::orders.edit', [
+        return response()->json([
+            'success' => true,
             'item' => $item,
             'order_statuses' => $order_statuses
         ]);
@@ -214,10 +206,10 @@ class OrdersController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        if( !Bouncer::can('delete',Order::class) ) return view( 'ordermate::unauth', [ 'success' => false ]);
+        if( !Bouncer::can('delete',Order::class) ) return response()->json([ 'success' => false, 'msg' => 'Action not allowed !' ]);
 
         Order::destroy($id);
-        return view( 'ordermate.orders.index', [
+        return response()->json([
             'success' => true,
             'flash_message' => 'Order deleted !',
             'msg_status' => 'danger',
