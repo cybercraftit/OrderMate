@@ -61,11 +61,6 @@
             <div class="card-footer">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item" v-if=nav_data.next_page_url><a class="page-link" :href="nav_data.next_page_url" @click="get_orders(nav_data.next_page_url)">Next</a></li>
-                    </ul>
-                </nav>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
                         <li class="page-item"  v-for="(n,index) in orders.items.last_page">
                             <a class="page-link" :href="'#/orders/' + n" :class="{'active btn-primary' : orders.items.current_page == n }">{{ n }}</a>
                         </li>

@@ -43,6 +43,7 @@
                                                 <a v-if="item.can.read" :href="'#/customers/show/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                 <a v-if="item.can.edit" :href="'#/customers/edit/' + item.id" class="btn btn-sm btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                                 <button v-if="item.can.delete" type="submit" @click="delete_item(item)" class="btn btn-danger btn-sm" title="__( 'ordermate::main.Delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                <a href="javascript:" class="btn btn-sm btn-success" @click="sel_customer_id = item.id" title="@lang('ordermate::main.View Orders')"><i class="fa fa-list" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </template>
@@ -62,32 +63,26 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="col" v-if="sel_customer_id">-->
-                    <!--<order-list :customer_id="sel_customer_id" :routes='{-->
-                    <!--customer_items : "{{ route('ordermate.ajax.customer.items') }}"-->
-                    <!--}'-->
-                    <!--@ev_close_list="close_list"-->
-                    <!--&gt;</order-list>-->
-                <!--</div>-->
+                <div class="col" v-if="sel_customer_id">
+                    <order-list :customer_id="sel_customer_id"
+                    @ev_close_list="close_list"></order-list>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import OrderList from '../OrderList.vue';
     import axios from 'axios';
     export default {
         name: 'CustomerIndex',
         props: {},
+        components:{
+            OrderList
+        },
         data() {
             return {
-                nav_data: {
-                    current_page: null,
-                    from: null,
-                    last_page: null,
-                    first_page_url: null,
-                    last_page_url: null,
-                    next_page_url: null
-                }
+                sel_customer_id: null
             }
         },
         watch: {
@@ -109,6 +104,9 @@
             },
             fetch_data() {
                 this.$store.dispatch('getCustomers', {page:this.$route.params.page})
+            },
+            close_list: function() {
+                this.sel_customer_id = null;
             }
         },
         mounted() {

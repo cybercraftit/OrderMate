@@ -74,9 +74,9 @@ let actions = {
     getOrders({commit}, {page}) {
         axios.get('/api/orders?page=' + page)
             .then(res => {
-                console.log('orders');
-                console.log(res.data);
-                commit('GET_ORDERS', res.data)
+                if( res.data.success ) {
+                    commit('GET_ORDERS', res.data)
+                }
             }).catch(err => {
             console.log(err)
         })
@@ -162,6 +162,20 @@ let actions = {
             console.log(err)
         })
     },
+    //individuals
+    getCustomerOrders({commit},{customer_id,page}) {
+        axios.post('/api/customers/orders?page=' + page,{
+            customer: customer_id
+        })
+            .then(res => {
+                if( res.data.success ) {
+                    commit('GET_ORDERS', res.data);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 };
 
 export default actions;
