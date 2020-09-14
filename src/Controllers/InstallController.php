@@ -47,7 +47,7 @@ class InstallController extends Controller
         Bouncer::assign('ordermate_admin')->to($user);
 
         //abilities assigned to bouncer_admin role
-        Bouncer::allow('bouncer_admin')->to([
+        Bouncer::allow('ordermate_admin')->to([
             'browse' => [ Order::class, Customer::class],
             'create' => [ Order::class, Customer::class],
             'read' => [ Order::class, Customer::class],
