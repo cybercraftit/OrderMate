@@ -1899,6 +1899,581 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'OrderList',
+  props: {
+    customer_id: {
+      type: Number
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {
+    orders: function orders() {
+      return this.$store.getters.orders;
+    }
+  },
+  watch: {
+    'customer_id': function customer_id(id) {
+      this.fetch_data(1);
+    }
+  },
+  methods: {
+    get_orders: function get_orders(page) {
+      this.fetch_data(page);
+    },
+    fetch_data: function fetch_data(page) {
+      var _this = this;
+
+      this.$store.dispatch('getCustomerOrders', {
+        customer_id: _this.customer_id,
+        page: page
+      });
+    },
+    close_list: function close_list() {
+      this.$emit('ev_close_list');
+    }
+  },
+  mounted: function mounted() {
+    this.fetch_data(1);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/form.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'createCustomer',
+  components: {
+    CustomerForm: _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      formMode: 'create'
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('createCustomer');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/form.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'editCustomer',
+  components: {
+    CustomerForm: _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      formMode: 'edit'
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('editCustomer', {
+      id: this.$route.params.id
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OrderList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../OrderList.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CustomerIndex',
+  props: {},
+  components: {
+    OrderList: _OrderList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      sel_customer_id: null
+    };
+  },
+  watch: {
+    '$route.params.page': function $routeParamsPage(id) {
+      this.fetch_data();
+    }
+  },
+  computed: {
+    customers: function customers() {
+      return this.$store.getters.customers;
+    }
+  },
+  methods: {
+    get_customers: function get_customers() {
+      this.fetch_data();
+    },
+    delete_item: function delete_item(customer) {
+      this.$store.dispatch('deleteCustomer', {
+        customer: customer
+      });
+    },
+    fetch_data: function fetch_data() {
+      this.$store.dispatch('getCustomers', {
+        page: this.$route.params.page
+      });
+    },
+    close_list: function close_list() {
+      this.sel_customer_id = null;
+    }
+  },
+  mounted: function mounted() {
+    this.fetch_data();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    formMode: {
+      type: String
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {
+    errors: function errors() {
+      return this.$store.getters.errors;
+    },
+    msg: function msg() {
+      return this.$store.getters.msg;
+    },
+    item: function item() {
+      return this.$store.getters.customer;
+    }
+  },
+  methods: {
+    update_item: function update_item() {
+      if (this.formMode == 'edit') {
+        this.$store.dispatch('updateCustomer', {
+          customer: this.item
+        });
+      } else {
+        this.$store.dispatch('storeCustomer', {
+          customer: this.item
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CustomerShow',
+  props: {},
+  data: function data() {
+    return {};
+  },
+  computed: {
+    customer: function customer() {
+      return this.$store.getters.customer;
+    }
+  },
+  methods: {
+    delete_item: function delete_item(customer) {
+      var _this = this;
+
+      this.$store.dispatch('deleteCustomer', {
+        customer: customer,
+        callback: function callback() {
+          _this.$router.push('/customers');
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getCustomer', {
+      id: this.$route.params.id
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/form.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/partials/form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'createOrder',
+  components: {
+    OrderForm: _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      formMode: 'create'
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('createOrder');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=script&lang=js& ***!
@@ -1948,9 +2523,10 @@ __webpack_require__.r(__webpack_exports__);
     OrderForm: _partials_form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      formMode: 'edit'
+    };
   },
-  methods: {},
   mounted: function mounted() {
     this.$store.dispatch('editOrder', {
       id: this.$route.params.id
@@ -2043,11 +2619,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OrderIndex',
@@ -2064,6 +2635,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  watch: {
+    '$route.params.page': function $routeParamsPage(id) {
+      this.fetch_data();
+    }
+  },
   computed: {
     orders: function orders() {
       return this.$store.getters.orders;
@@ -2073,34 +2649,19 @@ __webpack_require__.r(__webpack_exports__);
     get_orders: function get_orders(url) {
       this.fetch_data(url);
     },
-    delete_item: function delete_item(id) {
+    delete_item: function delete_item(order) {
       this.$store.dispatch('deleteOrder', {
-        id: id
+        order: order
       });
     },
-    fetch_data: function fetch_data(url) {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, {
-        customer: _this.customer_id
-      }).then(function (res) {
-        _this.orders = res.data.items.data;
-        console.log(_this.orders);
-        _this.nav_data = {
-          current_page: res.data.items.current_page,
-          from: res.data.items.from,
-          last_page: res.data.items.last_page,
-          first_page_url: res.data.items.first_page_url,
-          last_page_url: res.data.items.last_page_url,
-          next_page_url: res.data.items.next_page_url
-        };
+    fetch_data: function fetch_data() {
+      this.$store.dispatch('getOrders', {
+        page: this.$route.params.page
       });
     }
   },
   mounted: function mounted() {
-    this.$store.dispatch('getOrders', {
-      page: 1
-    });
+    this.fetch_data();
   }
 });
 
@@ -2212,23 +2773,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {},
+  props: {
+    formMode: {
+      type: String
+    }
+  },
   data: function data() {
     return {};
   },
   computed: {
+    errors: function errors() {
+      return this.$store.getters.errors;
+    },
+    msg: function msg() {
+      return this.$store.getters.msg;
+    },
     item: function item() {
       return this.$store.getters.order;
     },
     order_statuses: function order_statuses() {
       return this.$store.getters.order_statuses;
+    }
+  },
+  methods: {
+    update_item: function update_item() {
+      if (this.formMode == 'edit') {
+        this.$store.dispatch('updateOrder', {
+          order: this.item
+        });
+      } else {
+        this.$store.dispatch('storeOrder', {
+          order: this.item
+        });
+      }
     }
   }
 });
@@ -2305,12 +2883,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OrderShow',
@@ -2323,7 +2895,18 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.order;
     }
   },
-  methods: {},
+  methods: {
+    delete_item: function delete_item(order) {
+      var _this = this;
+
+      this.$store.dispatch('deleteOrder', {
+        order: order,
+        callback: function callback() {
+          _this.$router.push('/orders');
+        }
+      });
+    }
+  },
   mounted: function mounted() {
     this.$store.dispatch('getOrder', {
       id: this.$route.params.id
@@ -5751,10 +6334,226 @@ VueI18n.version = '8.21.0';
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=template&id=99a2f7e0&":
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=template&id=99a2f7e0& ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "card mb-4 mt-4" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("div", { staticClass: "mb-5" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm btn-danger pull-right",
+                attrs: { href: "javascript:" },
+                on: { click: _vm.close_list }
+              },
+              [_c("i", { staticClass: "fa fa-close" })]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "table",
+            {
+              staticClass: "table table-responsive",
+              attrs: { cellspacing: "0" }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.orders.items.data, function(item, k) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(item.id))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.delivery_date))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.payment_option))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.amount))])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            _vm._l(_vm.orders.items.last_page, function(n, index) {
+              return _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    class: {
+                      "active btn-primary": _vm.orders.items.current_page == n
+                    },
+                    attrs: { href: "javascript:" },
+                    on: {
+                      click: function($event) {
+                        return _vm.get_orders(n)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(n))]
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pull-left" }, [
+      _c("h5", [_vm._v("Orders")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Name')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Delivery Date')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Payment Option')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Amount')")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Name')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Delivery Date')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Payment Option')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Amount')")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a&":
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#/orders/", title: "Back" } }, [_vm._m(1)]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("customer-form", { attrs: { formMode: _vm.formMode } })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("h5", [_vm._v("@lang('ordermate::main.Create New Order')")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-warning btn-sm" }, [
+      _c("i", {
+        staticClass: "fa fa-arrow-left",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" Back")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5773,13 +6572,726 @@ var render = function() {
         _vm._v(" "),
         _c("a", { attrs: { href: "#/orders/", title: "Back" } }, [_vm._m(1)]),
         _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
         _c(
-          "form",
-          {
+          "div",
+          { staticClass: "mt-4" },
+          [_c("customer-form", { attrs: { formMode: _vm.formMode } })],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("h5", [_vm._v("@lang('ordermate::main.Create New Order')")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-warning btn-sm" }, [
+      _c("i", {
+        staticClass: "fa fa-arrow-left",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" Back")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-4 mt-4" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table table-bordered",
+                    attrs: { id: "dataTable", width: "100%", cellspacing: "0" }
+                  },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      [
+                        typeof _vm.customers.items == "object"
+                          ? _vm._l(_vm.customers.items.data, function(item, k) {
+                              return _c("tr", [
+                                _c("td", [_vm._v(_vm._s(item.id))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    _vm._s(item.first_name) +
+                                      " " +
+                                      _vm._s(item.last_name)
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(item.phone))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(item.email))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(item.address))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  item.can.read
+                                    ? _c(
+                                        "a",
+                                        {
+                                          staticClass: "btn btn-sm btn-success",
+                                          attrs: {
+                                            href: "#/customers/show/" + item.id
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-eye",
+                                            attrs: { "aria-hidden": "true" }
+                                          })
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  item.can.edit
+                                    ? _c(
+                                        "a",
+                                        {
+                                          staticClass: "btn btn-sm btn-success",
+                                          attrs: {
+                                            href: "#/customers/edit/" + item.id
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit",
+                                            attrs: { "aria-hidden": "true" }
+                                          })
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  item.can.delete
+                                    ? _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-danger btn-sm",
+                                          attrs: {
+                                            type: "submit",
+                                            title:
+                                              "__( 'ordermate::main.Delete')"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.delete_item(item)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-trash-o",
+                                            attrs: { "aria-hidden": "true" }
+                                          })
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "btn btn-sm btn-success",
+                                      attrs: {
+                                        href: "javascript:",
+                                        title:
+                                          "@lang('ordermate::main.View Orders')"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.sel_customer_id = item.id
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fa fa-list",
+                                        attrs: { "aria-hidden": "true" }
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ])
+                            })
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }, [
+              _c(
+                "nav",
+                { attrs: { "aria-label": "Page navigation example" } },
+                [
+                  _c(
+                    "ul",
+                    { staticClass: "pagination" },
+                    _vm._l(_vm.customers.items.last_page, function(n, index) {
+                      return _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            class: {
+                              "active btn-primary":
+                                _vm.customers.items.current_page == n
+                            },
+                            attrs: { href: "#/customers/" + n }
+                          },
+                          [_vm._v(_vm._s(n))]
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.sel_customer_id
+          ? _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _c("order-list", {
+                  attrs: { customer_id: _vm.sel_customer_id },
+                  on: { ev_close_list: _vm.close_list }
+                })
+              ],
+              1
+            )
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-table mr-1" }),
+      _vm._v(
+        "\n                        @lang('ordermate::main.Customers')\n                    "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Customer')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Phone')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Email')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Address')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Action')")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Customer')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Phone')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Email')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Address')")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("@lang('ordermate::main.Action')")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa&":
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm.msg
+      ? _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "alert alert-warning" }, [
+            _vm._v("\n            " + _vm._s(_vm.msg) + "\n        ")
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-6",
+                class:
+                  "form-group " + (_vm.errors.first_name ? "has-error" : "")
+              },
+              [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("@lang('ordermate::main.First Name')")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item.first_name,
+                      expression: "item.first_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "first_name",
+                    type: "text",
+                    id: "first_name",
+                    required: ""
+                  },
+                  domProps: { value: _vm.item.first_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.item, "first_name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-6",
+                class: "form-group " + (_vm.errors.last_name ? "has-error" : "")
+              },
+              [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("@lang('ordermate::main.Last Name')")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item.last_name,
+                      expression: "item.last_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "last_name",
+                    type: "text",
+                    id: "last_name",
+                    required: ""
+                  },
+                  domProps: { value: _vm.item.last_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.item, "last_name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-6",
+                class: "form-group " + (_vm.errors.phone ? "has-error" : "")
+              },
+              [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("@lang('ordermate::main.Phone')")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item.phone,
+                      expression: "item.phone"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "phone",
+                    type: "text",
+                    id: "phone",
+                    required: ""
+                  },
+                  domProps: { value: _vm.item.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.item, "phone", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                typeof _vm.errors.phone != "undefined"
+                  ? _c("p", { staticClass: "help-block alert alert-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.phone[0]))
+                    ])
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-6",
+                class: "form-group " + (_vm.errors.email ? "has-error" : "")
+              },
+              [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("@lang('ordermate::main.Email')")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item.email,
+                      expression: "item.email"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "email",
+                    type: "email",
+                    id: "email",
+                    required: ""
+                  },
+                  domProps: { value: _vm.item.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.item, "email", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                typeof _vm.errors.email != "undefined"
+                  ? _c("p", { staticClass: "help-block alert alert-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.email[0]))
+                    ])
+                  : _vm._e()
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: "form-group" + (_vm.errors.address ? "has-error" : "") },
+            [
+              _c("label", { staticClass: "control-label" }, [
+                _vm._v("@lang('ordermate::main.Address')")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.address,
+                    expression: "item.address"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  rows: "5",
+                  name: "shipping_address",
+                  type: "textarea",
+                  id: "address"
+                },
+                domProps: { value: _vm.item.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "address", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { class: "form-group" }, [
+            _c("input", {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              domProps: {
+                value: _vm.formMode === "edit" ? "Update" : "Create"
+              },
+              on: { click: _vm.update_item }
+            })
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "row mb-5" }, [
+        _c("div", { staticClass: "col-sm-12 text-right" }, [
+          typeof _vm.customer.can != "undefined" && _vm.customer.can.browse
+            ? _c(
+                "a",
+                {
+                  staticClass: "btn btn-sm btn-warning",
+                  attrs: {
+                    href: "#/customers",
+                    title: "@lang('ordermate::main.List')"
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-list" })]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          typeof _vm.customer.can != "undefined" && _vm.customer.can.edit
+            ? _c(
+                "a",
+                {
+                  staticClass: "btn btn-sm btn-success",
+                  attrs: { href: "#/customers/edit/" + _vm.customer.id }
+                },
+                [_c("i", { staticClass: "fa fa-edit" })]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          typeof _vm.customer.can != "undefined" && _vm.customer.can.delete
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger btn-sm",
+                  attrs: {
+                    type: "submit",
+                    title: "__( 'ordermate::main.Delete')"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.delete_item(_vm.customer)
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-trash-o",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            : _vm._e()
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("h5", [_vm._v("@lang('ordermate::main.Customer')")]),
+          _vm._v(" "),
+          _c("h4", [
+            _c("i", { staticClass: "fa fa-user" }),
+            _vm._v(
+              " " +
+                _vm._s(_vm.customer.first_name) +
+                " " +
+                _vm._s(_vm.customer.last_name)
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("i", { staticClass: "fa fa-phone" }),
+            _vm._v(" " + _vm._s(_vm.customer.phone))
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("i", { staticClass: "fa fa-envelope" }),
+            _vm._v(" " + _vm._s(_vm.customer.email))
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("i", { staticClass: "fa fa-address-book" }),
+            _vm._v(" " + _vm._s(_vm.customer.address))
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-success btn-sm",
+        attrs: { href: "javascript:", onclick: "window.print()" }
+      },
+      [_c("i", { staticClass: "fa fa-print" })]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#/orders/", title: "Back" } }, [_vm._m(1)]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("form", {
             staticClass: "form-horizontal",
             attrs: {
               method: "POST",
@@ -5787,11 +7299,88 @@ var render = function() {
               "accept-charset": "UTF-8",
               enctype: "multipart/form-data"
             }
-          },
-          [_c("order-form")],
-          1
-        )
+          }),
+          _vm._v(" "),
+          _c("order-form", { attrs: { formMode: _vm.formMode } })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("h5", [_vm._v("@lang('ordermate::main.Create New Order')")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-warning btn-sm" }, [
+      _c("i", {
+        staticClass: "fa fa-arrow-left",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" Back")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=template&id=99a2f7e0&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue?vue&type=template&id=99a2f7e0& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#/orders/", title: "Back" } }, [_vm._m(1)]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("form", {
+            staticClass: "form-horizontal",
+            attrs: {
+              method: "POST",
+              action: "",
+              "accept-charset": "UTF-8",
+              enctype: "multipart/form-data"
+            }
+          }),
+          _vm._v(" "),
+          _c("order-form", { attrs: { formMode: _vm.formMode } })
+        ],
+        1
+      )
     ])
   ])
 }
@@ -5843,9 +7432,9 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "card mb-4 mt-4" }, [
       _c("div", { staticClass: "card-body" }, [
+        _vm._m(0),
+        _vm._v(" "),
         _c("div", { staticClass: "table-responsive" }, [
-          _vm._m(0),
-          _vm._v(" "),
           _c(
             "table",
             {
@@ -5885,49 +7474,63 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(item.amount))]),
                           _vm._v(" "),
-                          _c(
-                            "td",
-                            [
-                              item.can.read
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-sm btn-success",
-                                      attrs: {
-                                        href: "#/orders/show/" + item.id
-                                      }
+                          _c("td", [
+                            item.can.read
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-sm btn-success",
+                                    attrs: { href: "#/orders/show/" + item.id }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-eye",
+                                      attrs: { "aria-hidden": "true" }
+                                    })
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            item.can.edit
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-sm btn-success",
+                                    attrs: { href: "#/orders/edit/" + item.id }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-edit",
+                                      attrs: { "aria-hidden": "true" }
+                                    })
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            item.can.delete
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-danger btn-sm",
+                                    attrs: {
+                                      type: "submit",
+                                      title: "__( 'ordermate::main.Delete')"
                                     },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-eye",
-                                        attrs: { "aria-hidden": "true" }
-                                      })
-                                    ]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              item.can.edit
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-sm btn-success",
-                                      attrs: {
-                                        href: "#/orders/edit/" + item.id
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.delete_item(item)
                                       }
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-edit",
-                                        attrs: { "aria-hidden": "true" }
-                                      })
-                                    ]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              item.can.delete ? void 0 : _vm._e()
-                            ],
-                            2
-                          )
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-trash-o",
+                                      attrs: { "aria-hidden": "true" }
+                                    })
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
                         ])
                       })
                     : _vm._e()
@@ -5941,25 +7544,26 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
         _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-          _c("ul", { staticClass: "pagination" }, [
-            _vm.nav_data.next_page_url
-              ? _c("li", { staticClass: "page-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link",
-                      attrs: { href: _vm.nav_data.next_page_url },
-                      on: {
-                        click: function($event) {
-                          return _vm.get_orders(_vm.nav_data.next_page_url)
-                        }
-                      }
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            _vm._l(_vm.orders.items.last_page, function(n, index) {
+              return _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    class: {
+                      "active btn-primary": _vm.orders.items.current_page == n
                     },
-                    [_vm._v("Next")]
-                  )
-                ])
-              : _vm._e()
-          ])
+                    attrs: { href: "#/orders/" + n }
+                  },
+                  [_vm._v(_vm._s(n))]
+                )
+              ])
+            }),
+            0
+          )
         ])
       ])
     ])
@@ -6044,8 +7648,570 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm.msg
+      ? _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "alert alert-warning" }, [
+            _vm._v("\n            " + _vm._s(_vm.msg) + "\n        ")
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-12 mb-4" }, [
+      _c("div", { staticClass: "card" }, [
+        _c(
+          "div",
+          { staticClass: "card-header" },
+          [
+            _vm._l(_vm.order_statuses, function(value, key) {
+              return [
+                _c("label", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.item.order_status,
+                        expression: "item.order_status"
+                      }
+                    ],
+                    attrs: { type: "radio", name: "order_status" },
+                    domProps: {
+                      value: key,
+                      checked: _vm._q(_vm.item.order_status, key)
+                    },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.item, "order_status", key)
+                      }
+                    }
+                  }),
+                  _vm._v(" " + _vm._s(value))
+                ])
+              ]
+            })
+          ],
+          2
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-8" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "div",
+            { class: "form-group " + (_vm.errors.name ? "has-error" : "") },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "name" } },
+                [_vm._v("@lang('ordermate::main.Name')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.name,
+                    expression: "item.name"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "name", type: "text", id: "name", required: "" },
+                domProps: { value: _vm.item.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "name", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              class:
+                "form-group" + (_vm.errors.delivery_date ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "control-label",
+                  attrs: { for: "delivery_date" }
+                },
+                [_vm._v("@lang('ordermate::main.Delivery Date')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.delivery_date,
+                    expression: "item.delivery_date"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "date",
+                  name: "delivery_date",
+                  id: "delivery_date"
+                },
+                domProps: { value: _vm.item.delivery_date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "delivery_date", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              class: "form-group" + (_vm.errors.product_id ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "product_id" } },
+                [_vm._v("@lang('ordermate::main.Product')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.product_id,
+                    expression: "item.product_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", name: "product_id", id: "product_id" },
+                domProps: { value: _vm.item.product_id },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "product_id", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              class:
+                "form-group" + (_vm.errors.payment_option ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "control-label",
+                  attrs: { for: "payment_option" }
+                },
+                [_vm._v("@lang('ordermate::main.Payment Option')")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item.payment_option,
+                      expression: "item.payment_option"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { name: "payment_option", id: "payment_option" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.item,
+                        "payment_option",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "paypal" } }, [
+                    _vm._v("@lang('ordermate::main.Paypal')")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "bank" } }, [
+                    _vm._v("@lang('ordermate::main.Bank')")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "cod" } }, [
+                    _vm._v("@lang('ordermate::main.Cash on Delivery')")
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: "form-group" + (_vm.errors.amount ? "has-error" : "") },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "product_id" } },
+                [_vm._v("@lang('ordermate::main.Amount')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.amount,
+                    expression: "item.amount"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", name: "amount", id: "amount" },
+                domProps: { value: _vm.item.amount },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "amount", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              class:
+                "form-group" + (_vm.errors.shipping_address ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "control-label",
+                  attrs: { for: "shipping_address" }
+                },
+                [_vm._v("@lang('ordermate::main.Shipping Address')")]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.shipping_address,
+                    expression: "item.shipping_address"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  rows: "5",
+                  name: "shipping_address",
+                  type: "textarea",
+                  id: "shipping_address"
+                },
+                domProps: { value: _vm.item.shipping_address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "shipping_address", $event.target.value)
+                  }
+                }
+              })
+            ]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-4" }, [
+      _c("div", { staticClass: "card mb-4" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _vm._v(
+            "\n                @lang('app.Customer Details')\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "div",
+            {
+              class: "form-group " + (_vm.errors.first_name ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "name" } },
+                [_vm._v("@lang('ordermate::main.First Name')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.customer.first_name,
+                    expression: "item.customer.first_name"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  name: "first_name",
+                  type: "text",
+                  id: "first_name",
+                  required: ""
+                },
+                domProps: { value: _vm.item.customer.first_name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.item.customer,
+                      "first_name",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              class: "form-group " + (_vm.errors.last_name ? "has-error" : "")
+            },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "name" } },
+                [_vm._v("@lang('ordermate::main.Last Name')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.customer.last_name,
+                    expression: "item.customer.last_name"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  name: "last_name",
+                  type: "text",
+                  id: "last_name",
+                  required: ""
+                },
+                domProps: { value: _vm.item.customer.last_name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.item.customer,
+                      "last_name",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: "form-group " + (_vm.errors.phone ? "has-error" : "") },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "name" } },
+                [_vm._v("@lang('ordermate::main.Phone')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.customer.phone,
+                    expression: "item.customer.phone"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  name: "phone",
+                  type: "text",
+                  id: "phone",
+                  required: ""
+                },
+                domProps: { value: _vm.item.customer.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item.customer, "phone", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              typeof _vm.errors.phone != "undefined"
+                ? _c("p", { staticClass: "help-block alert alert-warning" }, [
+                    _vm._v(_vm._s(_vm.errors.phone[0]))
+                  ])
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: "form-group " + (_vm.errors.email ? "has-error" : "") },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "name" } },
+                [_vm._v("@lang('ordermate::main.Email')")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.customer.email,
+                    expression: "item.customer.email"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  name: "email",
+                  type: "email",
+                  id: "email",
+                  required: ""
+                },
+                domProps: { value: _vm.item.customer.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item.customer, "email", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: "form-group " + (_vm.errors.address ? "has-error" : "") },
+            [
+              _c(
+                "label",
+                { staticClass: "control-label", attrs: { for: "address" } },
+                [_vm._v("@lang('ordermate::main.Address')")]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.customer.address,
+                    expression: "item.customer.address"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  rows: "5",
+                  name: "address",
+                  type: "textarea",
+                  id: "address"
+                },
+                domProps: { value: _vm.item.customer.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item.customer, "address", $event.target.value)
+                  }
+                }
+              })
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card mb-3" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _vm._v("\n                @lang('app.Publish')\n            ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { class: "form-group" }, [
+            _c("input", {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              domProps: {
+                value: _vm.formMode === "edit" ? "Update" : "Create"
+              },
+              on: { click: _vm.update_item }
+            })
+          ])
+        ])
+      ])
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -6094,7 +8260,31 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(0)
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.order.can.delete
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-danger btn-sm",
+                attrs: {
+                  type: "submit",
+                  title: "__( 'ordermate::main.Delete')"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.delete_item(_vm.order)
+                  }
+                }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-trash-o",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          : _vm._e()
       ])
     ]),
     _vm._v(" "),
@@ -22667,6 +24857,489 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue":
+/*!*************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderList.vue?vue&type=template&id=7f19a9f0& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0&");
+/* harmony import */ var _OrderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderList.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OrderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0&":
+/*!********************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0& ***!
+  \********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderList.vue?vue&type=template&id=7f19a9f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/OrderList.vue?vue&type=template&id=7f19a9f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderList_vue_vue_type_template_id_7f19a9f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue":
+/*!********************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=3a43dd8a& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a&");
+/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a&":
+/*!***************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a& ***!
+  \***************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./create.vue?vue&type=template&id=3a43dd8a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue?vue&type=template&id=3a43dd8a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_3a43dd8a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue":
+/*!******************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.vue?vue&type=template&id=6fe9f918& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918&");
+/* harmony import */ var _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918&":
+/*!*************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918& ***!
+  \*************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./edit.vue?vue&type=template&id=6fe9f918& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue?vue&type=template&id=6fe9f918&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_6fe9f918___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue":
+/*!*******************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=61e63898& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898&":
+/*!**************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898& ***!
+  \**************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=61e63898& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue?vue&type=template&id=61e63898&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_61e63898___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue":
+/*!***************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form.vue?vue&type=template&id=fa7939fa& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa&");
+/* harmony import */ var _form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa&":
+/*!**********************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa& ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./form.vue?vue&type=template&id=fa7939fa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/partials/form.vue?vue&type=template&id=fa7939fa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_fa7939fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue":
+/*!******************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./show.vue?vue&type=template&id=078a96ea& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea&");
+/* harmony import */ var _show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./show.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea&":
+/*!*************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea& ***!
+  \*************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./show.vue?vue&type=template&id=078a96ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue?vue&type=template&id=078a96ea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_078a96ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue":
+/*!*****************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=82dceafc& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc&");
+/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc&":
+/*!************************************************************************************************************************!*\
+  !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc& ***!
+  \************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./create.vue?vue&type=template&id=82dceafc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue?vue&type=template&id=82dceafc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_82dceafc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue":
 /*!***************************************************************************************!*\
   !*** ./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue ***!
@@ -23009,6 +25682,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_orders_index_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/orders/index.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/index.vue");
 /* harmony import */ var _components_orders_show_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/orders/show.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/show.vue");
 /* harmony import */ var _components_orders_edit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/orders/edit.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/edit.vue");
+/* harmony import */ var _components_orders_create_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/orders/create.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/orders/create.vue");
+/* harmony import */ var _components_customers_index_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/customers/index.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/index.vue");
+/* harmony import */ var _components_customers_show_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/customers/show.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/show.vue");
+/* harmony import */ var _components_customers_edit_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/customers/edit.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/edit.vue");
+/* harmony import */ var _components_customers_create_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/customers/create.vue */ "./packages/CyberCraft/OrderMate/src/public/assets/js/components/customers/create.vue");
+
+
+
+
+
 
 
 
@@ -23017,13 +25700,43 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
   path: '/orders',
-  component: _components_orders_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  redirect: '/orders/1'
+}, {
+  path: '/orders/(.*-)?:page(\\d+)',
+  component: _components_orders_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'OrderIndex'
 }, {
   path: '/orders/show/:id',
-  component: _components_orders_show_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_orders_show_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'OrderShow'
 }, {
   path: '/orders/edit/:id',
-  component: _components_orders_edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _components_orders_edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: 'OrderEdit'
+}, {
+  path: '/orders/create',
+  component: _components_orders_create_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  name: 'OrderCreate'
+}, //customer
+{
+  path: '/customers',
+  redirect: '/customers/1'
+}, {
+  path: '/customers/(.*-)?:page(\\d+)',
+  component: _components_customers_index_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  name: 'CustomerIndex'
+}, {
+  path: '/customers/show/:id',
+  component: _components_customers_show_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+  name: 'CustomerShow'
+}, {
+  path: '/customers/edit/:id',
+  component: _components_customers_edit_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+  name: 'CustomerEdit'
+}, {
+  path: '/customers/create',
+  component: _components_customers_create_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+  name: 'CustomerCreate'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
@@ -23043,50 +25756,192 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ "./packages/CyberCraft/OrderMate/src/public/assets/js/router.js");
+
 
 var actions = {
-  getOrders: function getOrders(_ref, _ref2) {
+  getOrder: function getOrder(_ref, _ref2) {
     var commit = _ref.commit;
-    var page = _ref2.page;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/orders?page=' + page).then(function (res) {
-      commit('GET_ORDERS', res.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  getOrder: function getOrder(_ref3, _ref4) {
-    var commit = _ref3.commit;
-    var id = _ref4.id;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/orders/show/' + id).then(function (res) {
+    var id = _ref2.id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/orders/show/' + id).then(function (res) {
       commit('GET_ORDER', res.data.item);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  editOrder: function editOrder(_ref5, _ref6) {
-    var commit = _ref5.commit;
-    var id = _ref6.id;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/orders/edit/' + id).then(function (res) {
+  createOrder: function createOrder(_ref3) {
+    var commit = _ref3.commit;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/orders/create').then(function (res) {
+      commit('CREATE_ORDER', res.data.item);
+      commit('GET_ORDER_STATUSES', res.data.order_statuses);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  editOrder: function editOrder(_ref4, _ref5) {
+    var commit = _ref4.commit;
+    var id = _ref5.id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/orders/edit/' + id).then(function (res) {
       commit('EDIT_ORDER', res.data.item);
       commit('GET_ORDER_STATUSES', res.data.order_statuses);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  createOrder: function createOrder(_ref7, _ref8) {
-    var commit = _ref7.commit;
-    var order = _ref8.order;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/orders/store', order).then(function (res) {
-      commit('CREATE_ORDER', res.data);
+  storeOrder: function storeOrder(_ref6, _ref7) {
+    var commit = _ref6.commit;
+    var order = _ref7.order;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/orders/store', order).then(function (res) {
+      if (!res.data.success) {
+        commit('SET_ERRORS', res.data.errors);
+      } else {
+        commit('SET_ERRORS', []);
+        commit('STORE_ORDER', res.data.item);
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/orders');
+      } //commit('GET_ORDER_STATUSES', res.data.order_statuses)
+
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteOrder: function deleteOrder(_ref9, _ref10) {
-    var commit = _ref9.commit;
-    var order = _ref10.order;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/orders/delete/".concat(order.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_ORDER', order);
+  updateOrder: function updateOrder(_ref8, _ref9) {
+    var commit = _ref8.commit;
+    var order = _ref9.order;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/orders/update/' + order.id, order).then(function (res) {
+      if (res.data.success) {
+        commit('EDIT_ORDER', res.data.item); //commit('GET_ORDER_STATUSES', res.data.order_statuses);
+
+        commit('SET_MESSAGE', res.data.flash_message);
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteOrder: function deleteOrder(_ref10, _ref11) {
+    var commit = _ref10.commit;
+    var order = _ref11.order,
+        callback = _ref11.callback;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/orders/delete/".concat(order.id)).then(function (res) {
+      if (res.data.success) {
+        commit('DELETE_ORDER', order);
+
+        if (callback) {
+          callback();
+        }
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  getOrders: function getOrders(_ref12, _ref13) {
+    var commit = _ref12.commit;
+    var page = _ref13.page;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/orders?page=' + page).then(function (res) {
+      if (res.data.success) {
+        commit('GET_ORDERS', res.data);
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  //customers
+  getCustomers: function getCustomers(_ref14, _ref15) {
+    var commit = _ref14.commit;
+    var page = _ref15.page;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/customers?page=' + page).then(function (res) {
+      commit('GET_CUSTOMERS', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  getCustomer: function getCustomer(_ref16, _ref17) {
+    var commit = _ref16.commit;
+    var id = _ref17.id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/customers/show/' + id).then(function (res) {
+      commit('GET_CUSTOMER', res.data.item);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  createCustomer: function createCustomer(_ref18) {
+    var commit = _ref18.commit;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/customers/create').then(function (res) {
+      console.log(res);
+      commit('CREATE_CUSTOMER', res.data.item); //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  editCustomer: function editCustomer(_ref19, _ref20) {
+    var commit = _ref19.commit;
+    var id = _ref20.id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/customers/edit/' + id).then(function (res) {
+      commit('EDIT_CUSTOMER', res.data.item); //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  storeCustomer: function storeCustomer(_ref21, _ref22) {
+    var commit = _ref21.commit;
+    var customer = _ref22.customer;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/customers/store', customer).then(function (res) {
+      if (!res.data.success) {
+        console.log(res);
+        commit('SET_ERRORS', res.data.errors);
+      } else {
+        commit('SET_ERRORS', []);
+        commit('STORE_CUSTOMER', res.data.item);
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/customers');
+      } //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses)
+
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  updateCustomer: function updateCustomer(_ref23, _ref24) {
+    var commit = _ref23.commit;
+    var customer = _ref24.customer;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/customers/update/' + customer.id, customer).then(function (res) {
+      console.log(res);
+
+      if (res.data.success) {
+        commit('EDIT_CUSTOMER', res.data.item); //commit('GET_CUSTOMER_STATUSES', res.data.customer_statuses);
+
+        commit('SET_MESSAGE', res.data.flash_message);
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteCustomer: function deleteCustomer(_ref25, _ref26) {
+    var commit = _ref25.commit;
+    var customer = _ref26.customer,
+        callback = _ref26.callback;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/customers/delete/".concat(customer.id)).then(function (res) {
+      console.log(res);
+
+      if (res.data.success) {
+        commit('DELETE_CUSTOMER', customer);
+
+        if (callback) {
+          callback();
+        }
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  //individuals
+  getCustomerOrders: function getCustomerOrders(_ref27, _ref28) {
+    var commit = _ref27.commit;
+    var customer_id = _ref28.customer_id,
+        page = _ref28.page;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/customers/orders?page=' + page, {
+      customer: customer_id
+    }).then(function (res) {
+      if (res.data.success) {
+        commit('GET_ORDERS', res.data);
+      }
     })["catch"](function (err) {
       console.log(err);
     });
@@ -23106,14 +25961,26 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
+  errors: function errors(state) {
+    return state.errors;
+  },
+  msg: function msg(state) {
+    return state.msg;
+  },
+  order_statuses: function order_statuses(state) {
+    return state.order_statuses;
+  },
   orders: function orders(state) {
     return state.orders;
   },
   order: function order(state) {
     return state.order;
   },
-  order_statuses: function order_statuses(state) {
-    return state.order_statuses;
+  customers: function customers(state) {
+    return state.customers;
+  },
+  customer: function customer(state) {
+    return state.customer;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -23161,29 +26028,111 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var mutations = {
-  GET_ORDERS: function GET_ORDERS(state, orders) {
-    return state.orders = orders;
+var _mutations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var mutations = (_mutations = {
+  SET_ERRORS: function SET_ERRORS(state, errors) {
+    state.errors = errors;
   },
   CREATE_ORDER: function CREATE_ORDER(state, order) {
-    state.orders.unshift(order);
+    //state.orders.unshift(order)
+    var o = {
+      name: '',
+      customer_id: '',
+      shipping_address: '',
+      delivery_date: '',
+      product_id: '',
+      payment_option: '',
+      amount: '',
+      order_status: '',
+      customer: {
+        first_name: '',
+        last_name: '',
+        phone: '',
+        email: '',
+        address: ''
+      },
+      can: order.can
+    };
+    return state.order = o;
+  },
+  STORE_ORDER: function STORE_ORDER(state, order) {
+    state.orders.items.data.unshift(order);
   },
   GET_ORDER: function GET_ORDER(state, order) {
     return state.order = order;
   },
   EDIT_ORDER: function EDIT_ORDER(state, order) {
+    state.msg = '';
     return state.order = order;
+  },
+  SET_MESSAGE: function SET_MESSAGE(state, msg) {
+    state.msg = msg;
   },
   GET_ORDER_STATUSES: function GET_ORDER_STATUSES(state, order_statuses) {
     return state.order_statuses = order_statuses;
   },
   DELETE_ORDER: function DELETE_ORDER(state, order) {
-    var index = state.orders.findIndex(function (item) {
-      return item.id === order.id;
+    var item = state.orders.items.data.forEach(function (item, index) {
+      if (item.id === order.id) {
+        state.orders.items.data.splice(index, 1);
+        return item;
+      }
     });
-    state.orders.splice(index, 1);
+  },
+  GET_ORDERS: function GET_ORDERS(state, orders) {
+    return state.orders = orders;
+  },
+  //cusomers
+  GET_CUSTOMERS: function GET_CUSTOMERS(state, customers) {
+    return state.customers = customers;
+  },
+  CREATE_CUSTOMER: function CREATE_CUSTOMER(state, customer) {
+    //state.customers.unshift(customer)
+    var o = {
+      name: '',
+      customer_id: '',
+      shipping_address: '',
+      delivery_date: '',
+      product_id: '',
+      payment_option: '',
+      amount: '',
+      customer_status: '',
+      customer: {
+        first_name: '',
+        last_name: '',
+        phone: '',
+        email: '',
+        address: ''
+      },
+      can: customer.can
+    };
+    return state.customer = o;
+  },
+  STORE_CUSTOMER: function STORE_CUSTOMER(state, customer) {
+    state.customers.items.data.unshift(customer);
+  },
+  GET_CUSTOMER: function GET_CUSTOMER(state, customer) {
+    return state.customer = customer;
+  },
+  EDIT_CUSTOMER: function EDIT_CUSTOMER(state, customer) {
+    state.msg = '';
+    return state.customer = customer;
   }
-};
+}, _defineProperty(_mutations, "SET_MESSAGE", function SET_MESSAGE(state, msg) {
+  state.msg = msg;
+}), _defineProperty(_mutations, "GET_CUSTOMER_STATUSES", function GET_CUSTOMER_STATUSES(state, customer_statuses) {
+  return state.customer_statuses = customer_statuses;
+}), _defineProperty(_mutations, "DELETE_CUSTOMER", function DELETE_CUSTOMER(state, customer) {
+  var item = state.customers.items.data.forEach(function (item, index) {
+    if (item.id === customer.id) {
+      state.customers.items.data.splice(index, 1);
+      return item;
+    }
+  });
+}), _mutations);
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
 
 /***/ }),
@@ -23198,9 +26147,21 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  orders: [],
+  errors: {},
+  msg: '',
+  orders: {
+    items: {
+      data: []
+    }
+  },
   order: {},
-  order_statuses: {}
+  order_statuses: {},
+  customers: {
+    items: {
+      data: []
+    }
+  },
+  customer: {}
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

@@ -10,25 +10,25 @@
                 <a :href="'#/orders/'" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                 <br />
                 <br />
-                <order-form :formMode="formMode"></order-form>
+                <customer-form :formMode="formMode"></customer-form>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import OrderForm from './partials/form.vue';
+    import CustomerForm from './partials/form.vue';
     export default {
-        name: 'editOrder',
+        name: 'createCustomer',
         components:{
-            OrderForm
+            CustomerForm
         },
         data() {
             return {
-                formMode: 'edit'
+                formMode: 'create'
             }
         },
         mounted() {
-            this.$store.dispatch('editOrder', {id:this.$route.params.id})
+            this.$store.dispatch('createCustomer')
         }
     }
 </script>

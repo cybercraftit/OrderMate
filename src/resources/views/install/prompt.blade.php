@@ -6,6 +6,6 @@
     install: "{{ route('ordermate.install.process') }}"
     }'></install-prompt>
 @stop
-@section('ordermate_data')
+@section('coremate_script_top')
     <script src="{{ asset('vendor/cybercraft/ordermate/js/ordermate-data.js') }}"></script>
 @stop

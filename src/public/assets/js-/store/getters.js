@@ -1,4 +1,4 @@
-export default  {
+let getters = {
     errors: state => {
         return state.errors
     },
@@ -20,4 +20,6 @@ export default  {
     customer: state => {
         return state.customer
     },
-};
+}
+
+export default  getters

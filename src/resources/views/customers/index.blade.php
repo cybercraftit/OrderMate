@@ -77,7 +77,7 @@
         </div>
     </div>
 @stop
-@section('ordermate_data')
+@section('coremate_script_top')
     <script>
         ordermate.data = Object.assign(ordermate.data,{
             sel_customer_id: null

@@ -24,7 +24,7 @@
         }
     }
 </script>
-@yield('ordermate_data')
+@yield('coremate_script_top')
 <script src="{{ asset('vendor/cybercraft/ordermate/js/ordermate.js') }}"></script>
 @yield('script')
 </body>

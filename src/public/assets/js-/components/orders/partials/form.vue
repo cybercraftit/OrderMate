@@ -121,13 +121,10 @@
         },
         methods: {
             update_item() {
-                var _this = this;
                 if(this.formMode == 'edit' ) {
                     this.$store.dispatch('updateOrder', {order:this.item});
                 } else {
-                    this.$store.dispatch('storeOrder', {order:this.item,callback:function () {
-                        _this.$router.push('/orders/1');
-                    }});
+                    this.$store.dispatch('storeOrder', {order:this.item});
                 }
             }
         }

@@ -2,7 +2,7 @@
 
 namespace CyberCraft\OrderMate\Controllers;
 
-use App\User;
+use CyberCraft\CoreMate\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\App;

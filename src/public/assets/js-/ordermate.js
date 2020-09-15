@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
-import routes_data from './router';
-import state_data from './store/state'
-import getters_data from './store/getters'
-import mutations_data from './store/mutations'
-import actions_data from './store/actions'
+import router from './router';
+import store from './store/index'
+
+//components
+//import OrderList from './components/OrderList.vue';
 
 
 Vue.use(VueInternationalization);
@@ -19,8 +19,13 @@ const i18n = new VueInternationalization({
     locale: lang,
     messages: Locale
 });
-routes = routes.concat(routes_data);
-state = Object.assign(state,state_data);
-getters = Object.assign(getters,getters_data);
-mutations = Object.assign(mutations,mutations_data);
-actions = Object.assign(actions,actions_data);
+
+new Vue({
+    el: '#coremate',
+    store,
+    router,
+    components: coremate.components,
+    data: coremate.data,
+    methods: coremate.methods,
+    i18n
+});

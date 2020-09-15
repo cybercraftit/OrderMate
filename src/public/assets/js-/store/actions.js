@@ -1,7 +1,7 @@
 import axios from 'axios';
-import router from '../../../../../../../../vendor/cybercraft/coremate/src/public/assets/js/router';
+import router from '../router';
 
-export default {
+let actions = {
 
     getOrder({commit}, {id}) {
         axios.get('/api/orders/show/' + id)
@@ -29,16 +29,17 @@ export default {
             console.log(err)
         })
     },
-    storeOrder({commit}, {order,callback}) {
+    storeOrder({commit}, {order}) {
         axios.post('/api/orders/store',order)
             .then(res => {
                 if( !res.data.success ) {
                     commit('SET_ERRORS', res.data.errors);
                 } else {
                     commit('SET_ERRORS', []);
-                    commit('STORE_ORDER', res.data.item);
-                    callback();
+                    commit('STORE_ORDER', res.data.item)
+                    router.push('/orders');
                 }
+
                 //commit('GET_ORDER_STATUSES', res.data.order_statuses)
             }).catch(err => {
             console.log(err)
@@ -176,3 +177,5 @@ export default {
             })
     }
 };
+
+export default actions;

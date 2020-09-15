@@ -1,4 +1,4 @@
-export default {
+let mutations = {
     SET_ERRORS(state, errors) {
         state.errors = errors;
     },
@@ -87,6 +87,9 @@ export default {
         state.msg = ''
         return state.customer = customer
     },
+    SET_MESSAGE(state, msg) {
+        state.msg = msg;
+    },
     GET_CUSTOMER_STATUSES(state, customer_statuses) {
         return state.customer_statuses = customer_statuses
     },
@@ -98,4 +101,5 @@ export default {
             }
         } );
     },
-};
+}
+export default mutations;

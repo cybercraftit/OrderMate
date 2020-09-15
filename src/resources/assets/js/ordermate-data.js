@@ -1980,50 +1980,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OrderList',
   props: {
     customer_id: {
       type: Number
-    },
-    routes: {
-      type: Object
     }
   },
   data: function data() {
-    return {
-      orders: {},
-      nav_data: {
-        current_page: null,
-        from: null,
-        last_page: null,
-        first_page_url: null,
-        last_page_url: null,
-        next_page_url: null
-      }
-    };
+    return {};
+  },
+  computed: {
+    orders: function orders() {
+      return this.$store.getters.orders;
+    }
+  },
+  watch: {
+    'customer_id': function customer_id(id) {
+      this.fetch_data(1);
+    }
   },
   methods: {
-    get_orders: function get_orders(url) {
-      this.fetch_data(url);
+    get_orders: function get_orders(page) {
+      this.fetch_data(page);
     },
-    fetch_data: function fetch_data(url) {
+    fetch_data: function fetch_data(page) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, {
-        customer: _this.customer_id
-      }).then(function (res) {
-        _this.orders = res.data.items.data;
-        console.log(_this.orders);
-        _this.nav_data = {
-          current_page: res.data.items.current_page,
-          from: res.data.items.from,
-          last_page: res.data.items.last_page,
-          first_page_url: res.data.items.first_page_url,
-          last_page_url: res.data.items.last_page_url,
-          next_page_url: res.data.items.next_page_url
-        };
+      this.$store.dispatch('getCustomerOrders', {
+        customer_id: _this.customer_id,
+        page: page
       });
     },
     close_list: function close_list() {
@@ -2031,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.fetch_data(this.routes.customer_orders);
+    this.fetch_data(1);
   }
 });
 
@@ -2116,7 +2109,6 @@ var searchTimeOut;
             user_query: searchQuery
           }
         }).then(function (res) {
-          console.log(res.data);
           _this.options = res.data;
         });
       }, 1000);
@@ -2991,7 +2983,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.orders, function(item, k) {
+                _vm._l(_vm.orders.items.data, function(item, k) {
                   return _c("tr", [
                     _c("td", [_vm._v(_vm._s(item.id))]),
                     _vm._v(" "),
@@ -3013,25 +3005,31 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
         _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-          _c("ul", { staticClass: "pagination" }, [
-            _vm.nav_data.next_page_url
-              ? _c("li", { staticClass: "page-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link",
-                      attrs: { href: _vm.nav_data.next_page_url },
-                      on: {
-                        click: function($event) {
-                          return _vm.get_orders(_vm.nav_data.next_page_url)
-                        }
-                      }
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            _vm._l(_vm.orders.items.last_page, function(n, index) {
+              return _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    class: {
+                      "active btn-primary": _vm.orders.items.current_page == n
                     },
-                    [_vm._v("Next")]
-                  )
-                ])
-              : _vm._e()
-          ])
+                    attrs: { href: "javascript:" },
+                    on: {
+                      click: function($event) {
+                        return _vm.get_orders(n)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(n))]
+                )
+              ])
+            }),
+            0
+          )
         ])
       ])
     ])

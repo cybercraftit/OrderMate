@@ -1,4 +1,4 @@
-export default {
+let state = {
     errors: {},
     msg: '',
     orders: {
@@ -15,3 +15,5 @@ export default {
     },
     customer: {}
 };
+
+export default state;

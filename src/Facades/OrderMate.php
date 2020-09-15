@@ -13,6 +13,6 @@ class OrderMate extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'ordermate';
+        return 'coremate';
     }
 }
